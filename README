@@ -1,0 +1,25 @@
+git map is a tool to execute a Git command in multiple Git directories at the same time.
+
+WHY?
+=======
+
+Occasionally I have projects made up of several Git repositories.  Running 'git map branch' quickly confirms everyone is on the correct branch, 'git map clean -dxf' to clean them all, and 'git map fetch' to make sure they all have the latest objects before going off line is very handy.  This tool will work on all the Git repositories that are at the same level in the file system relative to the current directory or current repository you are in.
+
+Example
+=======
+
+~/dev/
+     /projectA/repo1/
+              /repo2/
+              /repo3/
+              /other directory that isn't a git repo/
+     /projectB/repo1/
+              /repo2/
+
+If you are in ~/dev/projectA and running 'git map pull --rebase' will execute 'git pull --rebase' in repo1, repo2, and repo3.
+If you are in ~/dev/projectA/repo1/some/sub/directory and run 'git map pull --rebase' it will do the same thing.
+
+INSTALL
+=======
+
+Add the location of git-map to your PATH or install it in a location that is already in your PATH such as $HOME/bin 
